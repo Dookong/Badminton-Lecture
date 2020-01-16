@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="dk.minton">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2259613318357780~8588794515"/>
+
         <activity
             android:name=".activity.PlayerActivity"
             android:configChanges="orientation|screenSize"/>
