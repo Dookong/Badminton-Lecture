@@ -1,11 +1,12 @@
-package dk.minton
+package dk.minton.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
-
+import dk.minton.adapter.MainTabPagerAdapter
+import dk.minton.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         tabLayout.setupWithViewPager(viewPager)
 
         viewPager.apply {
-            adapter = MainTabPagerAdapter(supportFragmentManager,this@MainActivity)
+            adapter =
+                MainTabPagerAdapter(supportFragmentManager, this@MainActivity)
         }
     }
 
@@ -27,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         if (System.currentTimeMillis() - time >= 2000) {
             time = System.currentTimeMillis()
             val snack = Snackbar.make(container, "'뒤로' 버튼을 한번 더 누르시면 종료됩니다.", Snackbar.LENGTH_SHORT)
-            snack.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary))
+            snack.view.setBackgroundColor(ContextCompat.getColor(this,
+                R.color.colorPrimary
+            ))
             snack.show()
         } else if (System.currentTimeMillis() - time < 2000) {
             finish()
