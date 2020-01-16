@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">배드민턴 강좌</string>
+    <string name="license">라이선스</string>
+    <string name="review">리뷰</string>
 </resources>
