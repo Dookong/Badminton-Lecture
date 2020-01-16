@@ -24,7 +24,7 @@ class MainFragment : Fragment() {
     companion object{
         val part = "snippet,status"
         val fieds = "nextPageToken,items(snippet(publishedAt,title,resourceId,thumbnails),status)"
-        val maxresults = 30
+        val maxresults = 50
 
         fun newInstance(playlistid: String): MainFragment{
             val args = Bundle().apply { putString("id", playlistid) }

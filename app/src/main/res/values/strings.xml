@@ -2,4 +2,6 @@
     <string name="app_name">배드민턴 강좌</string>
     <string name="license">라이선스</string>
     <string name="review">리뷰</string>
+    <string name="local_assets">불러오기</string>
+    <string name="loading">로딩중..</string>
 </resources>
