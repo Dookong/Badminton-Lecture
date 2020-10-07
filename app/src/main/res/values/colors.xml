@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2C51D8</color>
-    <color name="colorPrimaryDark">#1B2199</color>
-    <color name="colorAccent">#F12F21</color>
+    <color name="colorPrimary">#ff77ef</color>
+    <color name="colorPrimaryDark">#ff77ef</color>
+    <color name="colorAccent">#7f0293</color>
+    <color name="tedBtnPrimary">#7f0293</color>
+    <color name="tedBtnHighlight">#ff77ef</color>
 </resources>

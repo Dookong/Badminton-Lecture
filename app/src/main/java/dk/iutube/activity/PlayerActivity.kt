@@ -1,25 +1,23 @@
-package dk.minton.activity
+package dk.iutube.activity
 
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Surface
+import android.widget.LinearLayout
 import android.widget.Toast
-import com.bumptech.glide.Glide
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
-import dk.minton.R
-import dk.minton.api.Key
-import gun0912.tedadhelper.TedAdHelper
-import gun0912.tedadhelper.nativead.OnNativeAdListener
-import gun0912.tedadhelper.nativead.TedNativeAdHolder
+import dk.iutube.R
+import dk.iutube.api.Key
+import com.facebook.ads.*
 import kotlinx.android.synthetic.main.playerlayout.*
 import kr.co.prnd.YouTubePlayerView
 
 class PlayerActivity : AppCompatActivity() {
 
     lateinit var player: YouTubePlayer
+    private var adView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +28,7 @@ class PlayerActivity : AppCompatActivity() {
                 provider: YouTubePlayer.Provider,
                 result: YouTubeInitializationResult
             ) {
-                Toast.makeText(this@PlayerActivity, "동영상을 불러오는데 실패했습니다:(", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@PlayerActivity, "Loading Failed:(", Toast.LENGTH_SHORT).show()
             }
 
             override fun onInitializationSuccess(
@@ -44,28 +42,14 @@ class PlayerActivity : AppCompatActivity() {
 
         })
 
-        val adHolder = TedNativeAdHolder(
-            native_container, this, getString(R.string.app_name),
-            Key.FACEBOOK_KEY, Key.ADMOB_KEY,
-            TedAdHelper.ImageProvider { imageView, imageUrl ->
-                Glide.with(this).load(imageUrl).into(imageView)
-            },
-            TedAdHelper.ADMOB_NATIVE_AD_TYPE.NATIVE_ADVANCED
-        )
+        loadAd()
+    }
 
-        adHolder.loadAD(arrayOf(TedAdHelper.AD_FACEBOOK, TedAdHelper.AD_ADMOB),
-            object : OnNativeAdListener{
-                override fun onAdClicked(adType: Int) {
-                }
-
-                override fun onLoaded(adType: Int) {
-                }
-
-                override fun onError(errorMessage: String?) {
-                    Log.d("debug", "광고 로드 실패: $errorMessage")
-                }
-            })
-
+    private fun loadAd() {
+        AudienceNetworkAds.initialize(this)
+        adView = AdView(this, Key.FACEBOOK_KEY, AdSize.RECTANGLE_HEIGHT_250)
+        findViewById<LinearLayout>(R.id.banner_container).addView(adView)
+        adView?.loadAd()
     }
 
     override fun onBackPressed() {
@@ -76,5 +60,10 @@ class PlayerActivity : AppCompatActivity() {
                 player.setFullscreen(false)
             }
         }
+    }
+
+    override fun onDestroy() {
+        adView?.destroy()
+        super.onDestroy()
     }
 }

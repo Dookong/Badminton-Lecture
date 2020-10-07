@@ -1,23 +1,25 @@
-package dk.minton.adapter
+package dk.iutube.adapter
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import dk.minton.fragment.MainFragment
+import dk.iutube.R
+import dk.iutube.fragment.MainFragment
 
-const val TAB_COUNT = 5
+const val TAB_COUNT = 6
 
 class MainTabPagerAdapter(fm: FragmentManager, val context: Context)
     : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    private val titles = arrayOf("하태권", "김용태", "윤이콕", "짱코치", "달인콕")
+    private val titles = arrayOf(R.string.iu, R.string.official, R.string.song, R.string.video, R.string.clip, R.string.commercial)
     private val urls = arrayOf(
-        "PL9Df21bffZzr4mT35tSHqoTomPfQ_s4BN",
-        "PLqPoGMl-3GsYoUaidb18OVW91uL9Ep0v0",
-        "PLp8hA-7NWk2D-jAOOhM3Lt67p_UbRfGea",
-        "PLfWTnSSRkKrhKs_4Zqf_BKWZGb3dY_ZKc",
-        "PLkUfjhFb5sgT3qXPoBP7pRWw2hG136R1I"
+        "PLGhOCcpfhWjeZqunx7WlGOwcJgNIVSTTj",
+        "PLGhOCcpfhWje6mTDcL8Yz3yQoKiHZTJhv",
+        "PL2ACgmfvv3rbUsofr-XyAe9eMk7nMoheE",
+        "PLGhOCcpfhWjenR_5jrOkGhdNILM1_oY9L",
+        "PLGhOCcpfhWjfqBvakt9CaKDuYnjlBl8Kt",
+        "PLGhOCcpfhWjc6k4PyfzV_zOvYDk1El20V"
     )
 
     override fun getItem(position: Int): Fragment =
@@ -26,7 +28,6 @@ class MainTabPagerAdapter(fm: FragmentManager, val context: Context)
     override fun getCount() = TAB_COUNT
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return titles[position]
+        return context.getString(titles[position])
     }
-
 }

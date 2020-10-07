@@ -1,4 +1,4 @@
-package dk.minton
+package dk.iutube
 
 import org.junit.Test
 

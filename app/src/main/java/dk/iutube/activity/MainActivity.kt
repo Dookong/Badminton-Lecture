@@ -1,11 +1,11 @@
-package dk.minton.activity
+package dk.iutube.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
-import dk.minton.adapter.MainTabPagerAdapter
+import dk.iutube.adapter.MainTabPagerAdapter
 import android.content.Intent
 import android.net.Uri
 import android.view.Menu
@@ -13,15 +13,13 @@ import android.view.MenuItem
 import de.psdev.licensesdialog.*
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20
 import de.psdev.licensesdialog.licenses.BSD2ClauseLicense
-import de.psdev.licensesdialog.licenses.CreativeCommonsAttribution30Unported
 import de.psdev.licensesdialog.model.Notice
 import de.psdev.licensesdialog.model.Notices
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(dk.minton.R.layout.activity_main)
+        setContentView(dk.iutube.R.layout.activity_main)
 
         setSupportActionBar(toolbar)
         tabLayout.setupWithViewPager(viewPager)
@@ -35,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         super.onCreateOptionsMenu(menu)
         val menuInflater = menuInflater
-        menuInflater.inflate(dk.minton.R.menu.menu, menu)
+        menuInflater.inflate(dk.iutube.R.menu.menu, menu)
         return true
     }
 
@@ -43,14 +41,14 @@ class MainActivity : AppCompatActivity() {
         super.onOptionsItemSelected(item)
 
         when (item.itemId) {
-            dk.minton.R.id.menu_review -> {
+            dk.iutube.R.id.menu_review -> {
                 val i = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=dk.minton")
+                    Uri.parse("https://play.google.com/store/apps/details?id=dk.iutube")
                 )
                 startActivity(i)
             }
-            dk.minton.R.id.menu_license -> {
+            dk.iutube.R.id.menu_license -> {
                 showLicenseDialog()
             }
         }
@@ -115,7 +113,7 @@ class MainActivity : AppCompatActivity() {
             time = System.currentTimeMillis()
             val snack = Snackbar.make(container, "'뒤로' 버튼을 한번 더 누르시면 종료됩니다.", Snackbar.LENGTH_SHORT)
             snack.view.setBackgroundColor(ContextCompat.getColor(this,
-                dk.minton.R.color.colorPrimary
+                dk.iutube.R.color.colorPrimary
             ))
             snack.show()
         } else if (System.currentTimeMillis() - time < 2000) {

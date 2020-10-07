@@ -1,4 +1,4 @@
-package dk.minton.data
+package dk.iutube.data
 import com.google.gson.annotations.SerializedName
 
 data class Video(

@@ -1,4 +1,4 @@
-package dk.minton
+package dk.iutube
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

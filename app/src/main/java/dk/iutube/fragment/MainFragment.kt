@@ -1,4 +1,4 @@
-package dk.minton.fragment
+package dk.iutube.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import dk.minton.R
-import dk.minton.adapter.VideoAdapter
-import dk.minton.api.Key
-import dk.minton.api.VideoServiceImpl
-import dk.minton.data.Video
+import dk.iutube.R
+import dk.iutube.adapter.VideoAdapter
+import dk.iutube.api.Key
+import dk.iutube.api.VideoServiceImpl
+import dk.iutube.data.Video
 import kotlinx.android.synthetic.main.fragement_rv.view.*
 import retrofit2.Call
 import retrofit2.Callback

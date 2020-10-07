@@ -1,4 +1,4 @@
-package dk.minton.api
+package dk.iutube.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

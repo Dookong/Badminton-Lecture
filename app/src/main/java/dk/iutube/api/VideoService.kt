@@ -1,6 +1,6 @@
-package dk.minton.api
+package dk.iutube.api
 
-import dk.minton.data.Video
+import dk.iutube.data.Video
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
